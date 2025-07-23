@@ -1,0 +1,77 @@
+/* 
+  componente ClienteConsulta styles.css.
+*/
+/* General container styling */
+.cliente-consulta-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cliente-consulta-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Table styling */
+.cliente-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.cliente-table th,
+.cliente-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.cliente-table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.cliente-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.cliente-table tr:hover {
+  background-color: #e9e9e9;
+}
+
+/* Messages styling */
+.loading-message,
+.error-message,
+.no-data-message {
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  font-weight: bold;
+}
+
+.loading-message {
+  background-color: #e0f7fa;
+  color: #007bff;
+  border: 1px solid #b2ebf2;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #ef9a9a;
+}
+
+.no-data-message {
+  background-color: #fffde7;
+  color: #fbc02d;
+  border: 1px solid #fff59d;
+}

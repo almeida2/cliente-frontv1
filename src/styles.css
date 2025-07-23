@@ -1,0 +1,21 @@
+.home-links {
+  margin-top: 70px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 0px; 
+}
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1976d2; /* azul */
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000;
+}
