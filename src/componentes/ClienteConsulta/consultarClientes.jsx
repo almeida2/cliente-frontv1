@@ -1,5 +1,5 @@
 async function consultarClientes() {
-  const API_URL = "http://localhost:8081/api/v1/clientes/all";
+  const API_URL = "http://localhost:8080/api/v1/clientes/all";
 
   try {
     const response = await fetch(API_URL);

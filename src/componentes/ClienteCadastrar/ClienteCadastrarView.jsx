@@ -1,26 +1,36 @@
 import React, { useState } from "react";
 import ClienteCadastrar from "./ClienteCadastrar";
+import { useNavigate } from "react-router-dom"; // Importe useNavigate
 import "./styles.css";
 
-const ClienteCadastrarView = ({ onCancelar }) => {
+const ClienteCadastrarView = () => {
   // Recebe a prop onCancelar
   const [nome, setNome] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [cpf, setCpf] = useState("");
   const [cep, setCep] = useState("");
+  const [complemento, setComplemento] = useState("");
   const [email, setEmail] = useState("");
-
+// Inicializa o hook useNavigate
+  const navigate = useNavigate();
+   // Crie uma função para o botão Cancelar
+  const handleCancelar = () => {
+    // Usa a função navigate para voltar para a rota do menu (ex: '/')
+    // Ajuste a rota se o seu menu estiver em um caminho diferente
+    navigate('/');
+  };
   const handleSubmit = async (e) => {
     const clienteData = {
       cpf,
       nome,
       cep,
+      complemento,
       email,
     };
     console.log(JSON.stringify(clienteData, null, 2));
 
     e.preventDefault();
-    const cliente = { cpf, nome, cep, email };
+    const cliente = { cpf, nome, cep, complemento, email };
     try {
       const result = await ClienteCadastrar(cliente);
 
@@ -78,18 +88,32 @@ const ClienteCadastrarView = ({ onCancelar }) => {
             required
           />
         </div>
+        
         <div>
-          <label htmlFor="email">e-mail:</label>
+          <label htmlFor="complemento">Complemento: </label>
+          <input
+            id="complemento"
+            name="complemento"
+            data-testid="complemento"
+            type="text"
+            value={complemento}
+            onChange={(e) => setComplemento(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
           <input
             id="email"
             name="email"
             data-testid="email"
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
+          </div>
+     
         <div className="button-container1">
           <button id="confirmar" type="submit" className="button">
             Confirmar
@@ -98,7 +122,7 @@ const ClienteCadastrarView = ({ onCancelar }) => {
             id="cancelar"
             type="button"
             className="button"
-            onClick={onCancelar}
+            onClick={handleCancelar}
           >
             Cancelar
           </button>

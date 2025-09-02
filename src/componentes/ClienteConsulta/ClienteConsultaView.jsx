@@ -42,7 +42,7 @@ function ClienteConsultaView() {
 
   return (
     <div className="cliente-consulta-container">
-      <h2>Resultado da Consulta de Clientes</h2>
+      <h2>Consulta de Clientes</h2>
       <table className="cliente-table">
         <thead>
           <tr>
@@ -51,6 +51,7 @@ function ClienteConsultaView() {
             <th>Nome</th>
             <th>CEP</th>
             <th>Endereço</th>
+            <th>Complemento</th>
             <th>Email</th>
             <th>Data de Cadastro</th>
           </tr>
@@ -63,6 +64,7 @@ function ClienteConsultaView() {
               <td>{cliente.nome}</td>
               <td>{cliente.cep}</td>
               <td>{cliente.endereco}</td>
+              <td>{cliente.complemento}</td>
               <td>{cliente.email}</td>
               <td>{cliente.dataCadastro}</td>
             </tr>

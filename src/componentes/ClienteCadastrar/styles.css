@@ -1,9 +1,9 @@
 /* ClienteCadastrarStyles.css */
 .cliente-cadastrar-view {
+   padding: 20px 40px 20px 40px; /* Top, Right, Bottom, Left */
     max-width: 300px;
     margin: 0 auto;
     font-size: 16px;
-    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -78,3 +78,23 @@
       padding: 10px;
       
     }
+    .cliente-cadastrar-view form > div {
+  display: flex;
+  align-items: baseline; /* Alinha a base do texto das labels */
+  margin-bottom: 15px; /* Adiciona um espaço entre os campos */
+}
+
+.cliente-cadastrar-view label {
+  min-width: 100px; /* Define uma largura mínima para a label */
+  text-align: right; /* Alinha o texto da label à direita */
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.cliente-cadastrar-view input {
+  flex-grow: 1; /* Permite que o input preencha o espaço restante */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
