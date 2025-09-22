@@ -1,15 +1,13 @@
 // components/ClienteConsulta.jsx
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Importa o hook useNavigate
-import ClienteConsultar from "./ClienteConsultar";
+import { useNavigate } from "react-router-dom";
+import ClienteConsultar from "./ClienteConsultar"; // Make sure the path is correct
 import "./styles.css";
 
 function ClienteConsultarView() {
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Inicializa o hook de navegação
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,11 +15,22 @@ function ClienteConsultarView() {
       try {
         setLoading(true);
         setError(null);
-        const data = await ClienteConsultar();
-        setClientes(data);
+        // Correctly call the function and get the structured result
+        const result = await ClienteConsultar();
+
+        if (result.success) {
+          // If successful, set the clientes state to the 'data' array
+          setClientes(result.data);
+        } else {
+          // If there's an error, set the error state with the error message
+          setError(result.error);
+          setClientes([]); // Ensure 'clientes' is an empty array on error
+        }
       } catch (err) {
+        // This catch block will handle any unexpected errors not caught by the ClienteConsultar function
         console.error("Erro no componente ClienteConsulta:", err);
         setError(err.message || "Não foi possível realizar a consulta.");
+        setClientes([]);
       } finally {
         setLoading(false);
       }
@@ -30,9 +39,8 @@ function ClienteConsultarView() {
     fetchData();
   }, []);
 
-  // Função para lidar com o clique do botão "Voltar"
   const handleVoltar = () => {
-    navigate("/"); // Navega para a rota raiz, que é o menu principal
+    navigate("/");
   };
 
   if (loading) {
@@ -50,8 +58,6 @@ function ClienteConsultarView() {
   return (
     <div className="cliente-consulta-container">
       <h2>Consulta de Clientes</h2>
-      {/* Adiciona o botão "Voltar" */}
-
       <table className="cliente-table">
         <thead>
           <tr>
@@ -66,6 +72,7 @@ function ClienteConsultarView() {
           </tr>
         </thead>
         <tbody>
+          {/* This will now work correctly because 'clientes' is an array */}
           {clientes.map((cliente) => (
             <tr key={cliente.id}>
               <td>{cliente.id}</td>
@@ -80,7 +87,6 @@ function ClienteConsultarView() {
           ))}
         </tbody>
       </table>
-
       <button onClick={handleVoltar} className="button">
         Voltar
       </button>

@@ -11,17 +11,17 @@
   
   .cliente-cadastrar-view h3 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .cliente-cadastrar-view form {
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
   }
   .title-cadastrar-view {
     text-align: center;
-    margin: 50px auto;
+    margin: 30px auto;
     font-size: 18px;
     font-weight: bold;
     color: #333;
@@ -48,17 +48,11 @@
     background-color: #005582; /* Cor azul mais escura para o hover */
   }
     
-  .cliente-cadastrar-view label {
-    margin-bottom: 5px;
-    margin-right: 10px;
-    font-weight: bold;
-  }
-  
-  .cliente-cadastrar-view input {
-    margin-bottom: 15px;
-    padding: 8px;
+    .cliente-cadastrar-view input {
+    margin-bottom: 4px;
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 2px;
     font-size: 16px;
   }
   
@@ -66,7 +60,7 @@
         background-color: #0077b5; /* Cor azul */
         color: white;
         border: none;
-        padding: 10px 20px;
+        padding: 10px 10px;
         font-size: 16px;
         cursor: pointer;
         border-radius: 4px;
@@ -74,8 +68,8 @@
     .button-container1 {
       display: flex;
       justify-content: center; /* Centraliza os botões horizontalmente */
-      margin: 10px 10px; /* Margens de 10 pixels nas laterais */
-      padding: 10px;
+      margin: 5px 5px; /* Margens de 10 pixels nas laterais */
+      padding: 1px;
       
     }
     .cliente-cadastrar-view form > div {
@@ -91,10 +85,3 @@
   font-weight: bold;
 }
 
-.cliente-cadastrar-view input {
-  flex-grow: 1; /* Permite que o input preencha o espaço restante */
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}

@@ -4,40 +4,40 @@ async function ClienteConsultar() {
   try {
     const response = await fetch(API_URL);
 
-    // Verifica se a resposta da rede foi bem-sucedida (status 200-299)
     if (!response.ok) {
-      // Se a resposta não for OK, lança um erro com o status e a mensagem
+      // If the response is not OK, read the error message from the JSON body
       const errorData = await response
         .json()
         .catch(() => ({ message: "Erro desconhecido" }));
-      throw new Error(
-        `Erro HTTP! Status: ${response.status} - ${
-          errorData.message || response.statusText
-        }`
-      );
+
+      // Return a structured error object instead of throwing an error
+      return {
+        success: false,
+        error: errorData.message || "Erro HTTP: " + response.status,
+      };
     }
 
     const result = await response.json();
 
-    // Novo passo: verificar se a resposta é bem-sucedida e se a propriedade 'data' existe
     if (result.status === "success" && result.data) {
-      // Retorna a propriedade 'data', que é o array de clientes
-      return result.data;
+      return { success: true, data: result.data };
     } else {
-      // Se a resposta não tiver a estrutura esperada ou status de sucesso,
-      // lança um erro com a mensagem da API ou uma mensagem padrão.
-      throw new Error(
-        result.message ||
-          "A resposta da API não contém a lista de clientes esperada."
-      );
+      // Return a structured error object for an unexpected API response format
+      return {
+        success: false,
+        error:
+          result.message ||
+          "A resposta da API não contém a lista de clientes esperada.",
+      };
     }
   } catch (error) {
     console.error("Erro no serviço de consulta de clientes:", error);
-    // Lança um erro mais amigável para ser tratado no componente de apresentação
-    throw new Error(
-      "Não foi possível carregar os dados dos clientes. Por favor, tente novamente mais tarde. " +
-        error.message
-    );
+    // Return a structured error object for network or other unexpected errors
+    return {
+      success: false,
+      error:
+        "Não foi possível carregar os dados dos clientes. " + error.message,
+    };
   }
 }
 export default ClienteConsultar;
