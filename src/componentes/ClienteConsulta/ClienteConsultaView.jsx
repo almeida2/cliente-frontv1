@@ -1,24 +1,26 @@
 // components/ClienteConsulta.jsx
 import React, { useState, useEffect } from "react";
-import { consultarClientes } from "./consultarClientes"; // Importa a função de serviço
-import "./styles.css"; // Importa o CSS
+import { useNavigate } from "react-router-dom"; // Importa o hook useNavigate
+import { consultarClientes } from "./consultarClientes";
+import "./styles.css";
 
 function ClienteConsultaView() {
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Inicializa o hook de navegação
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         setError(null);
-        // Chama a função de serviço que está separada
         const data = await consultarClientes();
         setClientes(data);
       } catch (err) {
         console.error("Erro no componente ClienteConsulta:", err);
-        // Exibe a mensagem de erro que veio do serviço ou uma padrão
         setError(err.message || "Não foi possível realizar a consulta.");
       } finally {
         setLoading(false);
@@ -26,7 +28,12 @@ function ClienteConsultaView() {
     };
 
     fetchData();
-  }, []); // Array de dependências vazio para rodar apenas uma vez ao montar
+  }, []);
+
+  // Função para lidar com o clique do botão "Voltar"
+  const handleVoltar = () => {
+    navigate("/"); // Navega para a rota raiz, que é o menu principal
+  };
 
   if (loading) {
     return <div className="loading-message">Carregando dados...</div>;
@@ -43,6 +50,8 @@ function ClienteConsultaView() {
   return (
     <div className="cliente-consulta-container">
       <h2>Consulta de Clientes</h2>
+      {/* Adiciona o botão "Voltar" */}
+
       <table className="cliente-table">
         <thead>
           <tr>
@@ -71,6 +80,10 @@ function ClienteConsultaView() {
           ))}
         </tbody>
       </table>
+
+      <button onClick={handleVoltar} className="button">
+        Voltar
+      </button>
     </div>
   );
 }

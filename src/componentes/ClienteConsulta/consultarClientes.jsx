@@ -1,5 +1,5 @@
 async function consultarClientes() {
-  const API_URL = "http://localhost:8080/api/v1/clientes/all";
+  const API_URL = "http://localhost:8081/api/v1/clientes/all";
 
   try {
     const response = await fetch(API_URL);
@@ -17,17 +17,26 @@ async function consultarClientes() {
       );
     }
 
-    const data = await response.json();
+    const result = await response.json();
 
-    // Garante que o retorno é sempre um array.
-    // Se a API retornar um único objeto, ele será envolvido em um array.
-    // Se retornar null/undefined, será um array vazio.
-    return Array.isArray(data) ? data : data ? [data] : [];
+    // Novo passo: verificar se a resposta é bem-sucedida e se a propriedade 'data' existe
+    if (result.status === "success" && result.data) {
+      // Retorna a propriedade 'data', que é o array de clientes
+      return result.data;
+    } else {
+      // Se a resposta não tiver a estrutura esperada ou status de sucesso,
+      // lança um erro com a mensagem da API ou uma mensagem padrão.
+      throw new Error(
+        result.message ||
+          "A resposta da API não contém a lista de clientes esperada."
+      );
+    }
   } catch (error) {
     console.error("Erro no serviço de consulta de clientes:", error);
     // Lança um erro mais amigável para ser tratado no componente de apresentação
     throw new Error(
-      "Não foi possível carregar os dados dos clientes. Por favor, tente novamente mais tarde."
+      "Não foi possível carregar os dados dos clientes. Por favor, tente novamente mais tarde. " +
+        error.message
     );
   }
 }

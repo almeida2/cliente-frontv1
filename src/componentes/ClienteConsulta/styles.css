@@ -4,9 +4,9 @@
 /* General container styling */
 .cliente-consulta-container {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 10px;
   max-width: 1000px;
-  margin: 20px auto;
+  margin: 10px auto;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -28,7 +28,7 @@
 .cliente-table th,
 .cliente-table td {
   border: 1px solid #ddd;
-  padding: 12px;
+  padding: 5px;
   text-align: left;
 }
 
@@ -42,9 +42,7 @@
   background-color: #f2f2f2;
 }
 
-.cliente-table tr:hover {
-  background-color: #e9e9e9;
-}
+
 
 /* Messages styling */
 .loading-message,
@@ -74,4 +72,20 @@
   background-color: #fffde7;
   color: #fbc02d;
   border: 1px solid #fff59d;
+}
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+  box-shadow: none;
 }

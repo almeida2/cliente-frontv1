@@ -11,13 +11,13 @@ const ClienteCadastrarView = () => {
   const [cep, setCep] = useState("");
   const [complemento, setComplemento] = useState("");
   const [email, setEmail] = useState("");
-// Inicializa o hook useNavigate
+  // Inicializa o hook useNavigate
   const navigate = useNavigate();
-   // Crie uma função para o botão Cancelar
+  // Crie uma função para o botão Cancelar
   const handleCancelar = () => {
     // Usa a função navigate para voltar para a rota do menu (ex: '/')
     // Ajuste a rota se o seu menu estiver em um caminho diferente
-    navigate('/');
+    navigate("/");
   };
   const handleSubmit = async (e) => {
     const clienteData = {
@@ -88,7 +88,7 @@ const ClienteCadastrarView = () => {
             required
           />
         </div>
-        
+
         <div>
           <label htmlFor="complemento">Complemento: </label>
           <input
@@ -112,8 +112,8 @@ const ClienteCadastrarView = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          </div>
-     
+        </div>
+
         <div className="button-container1">
           <button id="confirmar" type="submit" className="button">
             Confirmar
@@ -124,7 +124,7 @@ const ClienteCadastrarView = () => {
             className="button"
             onClick={handleCancelar}
           >
-            Cancelar
+            Voltar
           </button>
         </div>
       </form>
