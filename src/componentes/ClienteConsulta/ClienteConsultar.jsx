@@ -1,4 +1,4 @@
-async function consultarClientes() {
+async function ClienteConsultar() {
   const API_URL = "http://localhost:8081/api/v1/clientes/all";
 
   try {
@@ -40,5 +40,4 @@ async function consultarClientes() {
     );
   }
 }
-
-export { consultarClientes };
+export default ClienteConsultar;

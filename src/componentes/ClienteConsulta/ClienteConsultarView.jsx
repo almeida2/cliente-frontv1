@@ -1,10 +1,10 @@
 // components/ClienteConsulta.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Importa o hook useNavigate
-import { consultarClientes } from "./consultarClientes";
+import ClienteConsultar from "./ClienteConsultar";
 import "./styles.css";
 
-function ClienteConsultaView() {
+function ClienteConsultarView() {
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ function ClienteConsultaView() {
       try {
         setLoading(true);
         setError(null);
-        const data = await consultarClientes();
+        const data = await ClienteConsultar();
         setClientes(data);
       } catch (err) {
         console.error("Erro no componente ClienteConsulta:", err);
@@ -88,4 +88,4 @@ function ClienteConsultaView() {
   );
 }
 
-export default ClienteConsultaView;
+export default ClienteConsultarView;
