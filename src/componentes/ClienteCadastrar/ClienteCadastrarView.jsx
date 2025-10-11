@@ -13,10 +13,9 @@ const ClienteCadastrarView = () => {
   const [email, setEmail] = useState("");
   // Inicializa o hook useNavigate
   const navigate = useNavigate();
-  // Crie uma função para o botão Cancelar
-  const handleCancelar = () => {
+  // Crie uma função para o botão Voltar
+  const handleVoltar = () => {
     // Usa a função navigate para voltar para a rota do menu (ex: '/')
-    // Ajuste a rota se o seu menu estiver em um caminho diferente
     navigate("/");
   };
   const handleSubmit = async (e) => {
@@ -119,10 +118,10 @@ const ClienteCadastrarView = () => {
             Confirmar
           </button>
           <button
-            id="cancelar"
+            id="voltar"
             type="button"
             className="button"
-            onClick={handleCancelar}
+            onClick={handleVoltar}
           >
             Voltar
           </button>
