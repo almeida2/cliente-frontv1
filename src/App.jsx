@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
-        {/* Add other routes here as needed */}
+        {/* Adicionar outras rotas aqui de acordo com a necessidade */}
         <Route path="/clientes/consulta" element={<ClienteConsultarView />} />
         <Route path="/clientes/cadastrar" element={<ClienteCadastrarView />} />
         <Route path="/clientes/consultar/cpf" element={<ClienteConsulta />} />

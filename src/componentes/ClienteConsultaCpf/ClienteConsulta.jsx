@@ -16,7 +16,7 @@ const ClienteConsulta = () => {
       cep: "",
       email: "",
     };
-
+    // Monta a mensagem de requisição
     try {
       const response = await fetch(
         "http://localhost:8081/api/v1/clientes/cpf",
@@ -36,6 +36,7 @@ const ClienteConsulta = () => {
         setMensagem(data.message);
       }
     } catch (error) {
+      console.error("Erro ao consultar cliente:", error);
       setMensagem("Erro ao consultar cliente. Tente novamente mais tarde.");
     }
   };
