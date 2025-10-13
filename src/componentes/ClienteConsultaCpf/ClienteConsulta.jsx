@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import ClienteConsultarView from "./ClienteConsultarView";
+import ClienteConsultaView from "./ClienteConsultaView";
 
 const ClienteConsulta = () => {
   const [cpf, setCpf] = useState("");
   const [cliente, setCliente] = useState(null);
-  const [mensagem, setMensagem] = useState("");
+  const [mensagem, setMensagem] = useState(""); // Mensagem de sucesso ou erro retornada da API
+
+  // Função para consultar o cliente pelo CPF
 
   const consultarCliente = async () => {
     setMensagem("");
@@ -31,7 +33,8 @@ const ClienteConsulta = () => {
 
       if (data.status === "success") {
         setCliente(data.data);
-        setMensagem(data.message);
+        setMensagem(data.message); // mensagem retornada da API.
+        console.log(data.message);
       } else {
         setMensagem(data.message);
       }
@@ -48,7 +51,7 @@ const ClienteConsulta = () => {
   };
 
   return (
-    <ClienteConsultarView
+    <ClienteConsultaView
       cpf={cpf}
       setCpf={setCpf}
       cliente={cliente}

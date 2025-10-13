@@ -9,19 +9,16 @@ const ClienteConsultaView = ({
   cliente,
   mensagem,
   onConsultar,
-  // A prop 'onVoltar' não é mais necessária aqui, mas foi mantida
-  // no botão que só aparece quando o cliente não foi consultado.
 }) => {
   const navigate = useNavigate();
-
   // Função interna que redireciona para a página inicial (Menu)
   const handleVoltar = () => {
     navigate("/");
   };
 
-  // Decisão sobre qual função usar:
-  // - No bloco {!cliente}: Usaremos a nova função handleVoltar (ou a prop onVoltar, se preferir o controle externo)
-  // - No bloco {cliente}: Usaremos a nova função handleVoltar
+  // Formulario dinamico alterna entre estado de entrada de dados e estado de exibição dos dados consultados
+  // - No bloco {!cliente}: cliente nao consultado ou nao encontrado solicita o cpf
+  // - No bloco {cliente}: este bloco é exibido quando o cliente é encontrado
 
   return (
     <>
@@ -46,7 +43,7 @@ const ClienteConsultaView = ({
               <button className="button-primary" onClick={onConsultar}>
                 Consultar
               </button>
-              {/* Refatoração: Usar handleVoltar para garantir que volte para o menu */}
+              {/* Chama a função interna handleVoltar para garantir o redirecionamento */}
               <button className="button-primary" onClick={handleVoltar}>
                 Voltar
               </button>
@@ -96,7 +93,7 @@ const ClienteConsultaView = ({
                 id="voltar"
                 type="button"
                 className="button-primary"
-                // ** CORREÇÃO CHAVE: Chamar a função interna handleVoltar **
+                // Chama a função interna handleVoltar para garantir o redirecionamento
                 onClick={handleVoltar}
               >
                 Voltar
