@@ -4,7 +4,7 @@
 .form-container {
     padding: 20px 40px 20px 40px; /* Top, Right, Bottom, Left */
     max-width: 300px;
-    margin: 20px auto; /* Adicionei margem superior/inferior para melhor visualização */
+    margin: 20px auto; /* Adiciona margem superior/inferior para melhor visualização */
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -38,9 +38,9 @@
 .form-container input[type="text"] {
     flex-grow: 1; /* Faz o input ocupar o espaço restante */
     margin-bottom: 4px;
-    padding: 8px; /* Aumentei o padding para melhor estética */
+    padding: 8px; /* Aumenta o padding para melhorar a estética */
     border: 1px solid #ccc;
-    border-radius: 4px; /* Aumentei o border-radius */
+    border-radius: 4px; /* Aumenta o border-radius */
     font-size: 16px;
 }
 
@@ -48,7 +48,7 @@
 .button-primary {
     background-color: #0077b5; /* Cor azul */
     color: white;
-    border: none; /* Removi a borda redundante */
+    border: none; /* Remove a borda redundante */
     padding: 10px 15px;
     font-size: 14px;
     cursor: pointer;

@@ -1,5 +1,5 @@
 import React from "react";
-// IMPORTAR O ARQUIVO DE ESTILOS COMPARTILHADO
+// importar o arquivo de estilos compartilhados
 import { useNavigate } from "react-router-dom";
 import "./shared.css";
 
