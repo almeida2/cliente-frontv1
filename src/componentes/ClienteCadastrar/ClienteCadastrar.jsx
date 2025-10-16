@@ -8,7 +8,7 @@ async function ClienteCadastrar(cliente) {
       body: JSON.stringify(cliente),
     });
 
-    // Se a resposta NÃO for OK, lemos o corpo para obter a mensagem de erro
+    // Se a resposta não for OK, obtem a mensagem de erro do body
     if (!response.ok) {
       // Tenta ler o JSON de erro da resposta
       const errorData = await response.json();

@@ -1,7 +1,7 @@
 // components/ClienteConsulta.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ClienteConsultar from "./ClienteConsultar"; // Make sure the path is correct
+import ClienteConsultar from "./ClienteConsultar"; 
 import "./styles.css";
 
 function ClienteConsultarView() {
@@ -15,19 +15,19 @@ function ClienteConsultarView() {
       try {
         setLoading(true);
         setError(null);
-        // Correctly call the function and get the structured result
+        // Chama a função e obtém o resultado estruturado
         const result = await ClienteConsultar();
 
         if (result.success) {
-          // If successful, set the clientes state to the 'data' array
+          // Se for bem-sucedido, define o estado de clientes como o array 'data'
           setClientes(result.data);
         } else {
-          // If there's an error, set the error state with the error message
+          // Se houver um erro, define o estado de erro com a mensagem de erro
           setError(result.error);
-          setClientes([]); // Ensure 'clientes' is an empty array on error
+          setClientes([]); // Garante que 'clientes' seja um array vazio em caso de erro
         }
       } catch (err) {
-        // This catch block will handle any unexpected errors not caught by the ClienteConsultar function
+        // Este bloco manipula erros inesperados 
         console.error("Erro no componente ClienteConsulta:", err);
         setError(err.message || "Não foi possível realizar a consulta.");
         setClientes([]);
@@ -72,7 +72,7 @@ function ClienteConsultarView() {
           </tr>
         </thead>
         <tbody>
-          {/* This will now work correctly because 'clientes' is an array */}
+          {/* Manipula o array de clientes */}
           {clientes.map((cliente) => (
             <tr key={cliente.id}>
               <td>{cliente.id}</td>

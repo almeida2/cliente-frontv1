@@ -5,12 +5,12 @@ async function ClienteConsultar() {
     const response = await fetch(API_URL);
 
     if (!response.ok) {
-      // If the response is not OK, read the error message from the JSON body
+      // Se a resposta não for OK, obtem a mensagem de erro do  body
       const errorData = await response
         .json()
         .catch(() => ({ message: "Erro desconhecido" }));
 
-      // Return a structured error object instead of throwing an error
+      // Retorna um objeto de erro estruturado em vez de lançar um erro
       return {
         success: false,
         error: errorData.message || "Erro HTTP: " + response.status,
@@ -22,7 +22,7 @@ async function ClienteConsultar() {
     if (result.status === "success" && result.data) {
       return { success: true, data: result.data };
     } else {
-      // Return a structured error object for an unexpected API response format
+      // Retorna um objeto de erro estruturado para um formato de resposta da API inesperado
       return {
         success: false,
         error:
@@ -32,7 +32,7 @@ async function ClienteConsultar() {
     }
   } catch (error) {
     console.error("Erro no serviço de consulta de clientes:", error);
-    // Return a structured error object for network or other unexpected errors
+    // Retorna um objeto de erro estruturado para erros de rede ou outros erros inesperados
     return {
       success: false,
       error:

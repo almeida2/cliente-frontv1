@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ClienteCadastrar from "./ClienteCadastrar";
-import { useNavigate } from "react-router-dom"; // Importe useNavigate
+import { useNavigate } from "react-router-dom"; 
 import "./styles.css";
 
 const ClienteCadastrarView = () => {
@@ -13,9 +13,9 @@ const ClienteCadastrarView = () => {
   const [email, setEmail] = useState("");
   // Inicializa o hook useNavigate
   const navigate = useNavigate();
-  // Crie uma função para o botão Voltar
+  // Cria uma função para o botão Voltar
   const handleVoltar = () => {
-    // Usa a função navigate para voltar para a rota do menu (ex: '/')
+    // Usa a função navigate para voltar para a rota do menu 
     navigate("/");
   };
   const handleSubmit = async (e) => {
