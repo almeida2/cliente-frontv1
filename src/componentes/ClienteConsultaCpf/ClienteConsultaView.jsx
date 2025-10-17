@@ -40,11 +40,11 @@ const ClienteConsultaView = ({
               />
             </div>
             <div className="button-group">
-              <button className="button-primary" onClick={onConsultar}>
+              <button className="button" onClick={onConsultar}>
                 Consultar
               </button>
               {/* Chama a função interna handleVoltar para garantir o redirecionamento */}
-              <button className="button-primary" onClick={handleVoltar}>
+              <button className="button" onClick={handleVoltar}>
                 Voltar
               </button>
             </div>

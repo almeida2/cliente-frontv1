@@ -36,14 +36,15 @@ function ClienteExclusaoView({ cpf, setCpf, loading, mensagem, onSubmit }) {
           </div>
           <div className="button-group">
             <div className="button-group-item"></div>
-          </div>
+          
           <div style={{ display: "flex", gap: 8 }}>
-            <button type="submit" disabled={loading}>
+            <button type="submit" className="button" disabled={loading}>
               {loading ? "Excluindo..." : "Excluir"}
             </button>
-            <button type="button" onClick={handleBackToMenu} disabled={loading}>
+            <button type="button" className="button" onClick={handleBackToMenu} disabled={loading}>
               Voltar
             </button>
+          </div>
           </div>
 
           {mensagem && (
