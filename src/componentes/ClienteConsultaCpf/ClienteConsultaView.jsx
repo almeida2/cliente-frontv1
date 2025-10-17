@@ -72,6 +72,10 @@ const ClienteConsultaView = ({
               <label htmlFor="cep">CEP:</label>
               <input id="cep" type="text" value={cliente.cep} readOnly />
             </div>
+             <div className="form-group-item">
+              <label htmlFor="endereco">Endereco:</label>
+              <input id="endereco" type="text" value={cliente.endereco} readOnly />
+            </div>
 
             <div className="form-group-item">
               <label htmlFor="complemento">Complemento:</label>
@@ -86,6 +90,10 @@ const ClienteConsultaView = ({
             <div className="form-group-item">
               <label htmlFor="email">E-mail:</label>
               <input id="email" type="text" value={cliente.email} readOnly />
+            </div>
+            <div className="form-group-item">
+              <label htmlFor="dataCadastro">Data :</label>
+              <input id="dataCadastro" type="text" value={cliente.dataCadastro} readOnly />
             </div>
 
             <div className="button-group">
