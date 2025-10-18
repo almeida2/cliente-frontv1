@@ -1,25 +1,14 @@
 import React from "react";
-// importar o arquivo de estilos compartilhados
-import { useNavigate } from "react-router-dom";
 import "./shared.css";
 
-const ClienteConsultaView = ({
+const ClienteConsultaCpfView = ({
   cpf,
   setCpf,
   cliente,
   mensagem,
   onConsultar,
+  onVoltar,
 }) => {
-  const navigate = useNavigate();
-  // Função interna que redireciona para a página inicial (Menu)
-  const handleVoltar = () => {
-    navigate("/");
-  };
-
-  // Formulario dinamico alterna entre estado de entrada de dados e estado de exibição dos dados consultados
-  // - No bloco {!cliente}: cliente nao consultado ou nao encontrado solicita o cpf
-  // - No bloco {cliente}: este bloco é exibido quando o cliente é encontrado
-
   return (
     <>
       <div className="top-bar">Sistema Integrado de Gestão</div>
@@ -43,8 +32,7 @@ const ClienteConsultaView = ({
               <button className="button" onClick={onConsultar}>
                 Consultar
               </button>
-              {/* Chama a função interna handleVoltar para garantir o redirecionamento */}
-              <button className="button" onClick={handleVoltar}>
+              <button className="button" onClick={onVoltar}>
                 Voltar
               </button>
             </div>
@@ -72,9 +60,15 @@ const ClienteConsultaView = ({
               <label htmlFor="cep">CEP:</label>
               <input id="cep" type="text" value={cliente.cep} readOnly />
             </div>
-             <div className="form-group-item">
+
+            <div className="form-group-item">
               <label htmlFor="endereco">Endereco:</label>
-              <input id="endereco" type="text" value={cliente.endereco} readOnly />
+              <input
+                id="endereco"
+                type="text"
+                value={cliente.endereco}
+                readOnly
+              />
             </div>
 
             <div className="form-group-item">
@@ -91,9 +85,15 @@ const ClienteConsultaView = ({
               <label htmlFor="email">E-mail:</label>
               <input id="email" type="text" value={cliente.email} readOnly />
             </div>
+
             <div className="form-group-item">
               <label htmlFor="dataCadastro">Data :</label>
-              <input id="dataCadastro" type="text" value={cliente.dataCadastro} readOnly />
+              <input
+                id="dataCadastro"
+                type="text"
+                value={cliente.dataCadastro}
+                readOnly
+              />
             </div>
 
             <div className="button-group">
@@ -101,8 +101,7 @@ const ClienteConsultaView = ({
                 id="voltar"
                 type="button"
                 className="button-primary"
-                // Chama a função interna handleVoltar para garantir o redirecionamento
-                onClick={handleVoltar}
+                onClick={onVoltar}
               >
                 Voltar
               </button>
@@ -116,4 +115,4 @@ const ClienteConsultaView = ({
   );
 };
 
-export default ClienteConsultaView;
+export default ClienteConsultaCpfView;

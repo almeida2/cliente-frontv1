@@ -1,48 +1,7 @@
 // components/ClienteConsulta.jsx
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import ClienteConsultar from "./ClienteConsultar"; 
+import React from "react";
 import "./styles.css";
-
-function ClienteConsultarView() {
-  const [clientes, setClientes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        // Chama a função e obtém o resultado estruturado
-        const result = await ClienteConsultar();
-
-        if (result.success) {
-          // Se for bem-sucedido, define o estado de clientes como o array 'data'
-          setClientes(result.data);
-        } else {
-          // Se houver um erro, define o estado de erro com a mensagem de erro
-          setError(result.error);
-          setClientes([]); // Garante que 'clientes' seja um array vazio em caso de erro
-        }
-      } catch (err) {
-        // Este bloco manipula erros inesperados 
-        console.error("Erro no componente ClienteConsulta:", err);
-        setError(err.message || "Não foi possível realizar a consulta.");
-        setClientes([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const handleVoltar = () => {
-    navigate("/");
-  };
-
+function ClienteConsultarView({ clientes, loading, error, onVoltar }) {
   if (loading) {
     return <div className="loading-message">Carregando dados...</div>;
   }
@@ -51,7 +10,7 @@ function ClienteConsultarView() {
     return <div className="error-message">{error}</div>;
   }
 
-  if (clientes.length === 0) {
+  if (!clientes || clientes.length === 0) {
     return <div className="no-data-message">Nenhum cliente encontrado.</div>;
   }
 
@@ -72,7 +31,6 @@ function ClienteConsultarView() {
           </tr>
         </thead>
         <tbody>
-          {/* Manipula o array de clientes */}
           {clientes.map((cliente) => (
             <tr key={cliente.id}>
               <td>{cliente.id}</td>
@@ -87,7 +45,8 @@ function ClienteConsultarView() {
           ))}
         </tbody>
       </table>
-      <button onClick={handleVoltar} className="button">
+
+      <button onClick={onVoltar} className="button">
         Voltar
       </button>
     </div>

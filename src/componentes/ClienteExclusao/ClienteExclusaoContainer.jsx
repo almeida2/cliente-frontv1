@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import ClienteExclusaoView from "./ClienteExclusaoView"; // Importa o componente de apresentação
-
-function ClienteExclusaoContainer({
-  apiBase = "",
-  onDeleteSuccess,
-  onDeleteError,
-}) {
+import ClienteExclusaoView from "./ClienteExclusaoView";
+import ClienteExclusaoService from "./ClienteExclusaoService";
+//Container mantém apenas gerenciamento de estado e lógica de UI
+function ClienteExclusaoContainer({ onDeleteSuccess, onDeleteError }) {
   const [cpf, setCpf] = useState("");
   const [loading, setLoading] = useState(false);
   const [mensagem, setMensagem] = useState(null);
@@ -35,18 +32,10 @@ function ClienteExclusaoContainer({
 
     setLoading(true);
     try {
-      const url = `http://localhost:8081/api/v1/clientes/${cpfNumeros}`;
-      const resp = await fetch(url, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        //body: JSON.stringify({ cpf: cpfNumeros }),
-      });
+      const result = await ClienteExclusaoService.excluir(cpfNumeros);
 
-      if (!resp.ok) {
-        const errText = await resp.text().catch(() => resp.statusText);
-        throw new Error(errText || `Erro ${resp.status}`);
+      if (result.error) {
+        throw new Error(result.error);
       }
 
       setMensagem({ tipo: "sucesso", texto: "Cliente excluído com sucesso." });

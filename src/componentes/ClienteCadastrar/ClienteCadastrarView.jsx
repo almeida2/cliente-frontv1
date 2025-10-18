@@ -1,50 +1,21 @@
-import React, { useState } from "react";
-import ClienteCadastrar from "./ClienteCadastrar";
-import { useNavigate } from "react-router-dom"; 
+import React from "react";
 import "./styles.css";
 
-const ClienteCadastrarView = () => {
-  // Recebe a prop onCancelar
-  const [nome, setNome] = useState("");
-  const [mensagem, setMensagem] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [cep, setCep] = useState("");
-  const [complemento, setComplemento] = useState("");
-  const [email, setEmail] = useState("");
-  // Inicializa o hook useNavigate
-  const navigate = useNavigate();
-  // Cria uma função para o botão Voltar
-  const handleVoltar = () => {
-    // Usa a função navigate para voltar para a rota do menu 
-    navigate("/");
-  };
-  const handleSubmit = async (e) => {
-    const clienteData = {
-      cpf,
-      nome,
-      cep,
-      complemento,
-      email,
-    };
-    console.log(JSON.stringify(clienteData, null, 2));
-
-    e.preventDefault();
-    const cliente = { cpf, nome, cep, complemento, email };
-    try {
-      const result = await ClienteCadastrar(cliente);
-
-      if (result.data) {
-        setMensagem("Cliente cadastrado com sucesso");
-        console.log(result.data);
-      } else {
-        console.log(`Erro componente cadastrar view: ${result.error}`);
-        setMensagem(`Erro componente cadastrar view: ${result.error}`);
-      }
-    } catch (error) {
-      setMensagem(`Erro não esperado cadastrar view: ${error.message}`);
-    }
-  };
-
+const ClienteCadastrarView = ({
+  cpf,
+  nome,
+  cep,
+  complemento,
+  email,
+  setCpf,
+  setNome,
+  setCep,
+  setComplemento,
+  setEmail,
+  handleSubmit,
+  handleVoltar,
+  mensagem,
+}) => {
   return (
     <div className="cliente-cadastrar-view">
       <div className="top-bar">Sistema Integrado de Gestão</div>
@@ -52,7 +23,7 @@ const ClienteCadastrarView = () => {
 
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="cpf"> CPF: </label>
+          <label htmlFor="cpf">CPF:</label>
           <input
             id="cpf"
             name="cpf"
@@ -87,9 +58,8 @@ const ClienteCadastrarView = () => {
             required
           />
         </div>
-
         <div>
-          <label htmlFor="complemento">Complemento: </label>
+          <label htmlFor="complemento">Complemento:</label>
           <input
             id="complemento"
             name="complemento"
