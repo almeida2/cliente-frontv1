@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ClienteCadastrarView from "./ClienteCadastrarView";
-import ClienteService from "./ClienteService";
+import ClienteService from "./ClienteService"; // container consome esse servico
 //*********************************************************************************** */
 //Gerenciamento de estado e coordenação entre a view e o serviço de cadastro de clientes
 //O container gerencia o estado dos campos do formulário, lida com a submissão dos dados e navegação
