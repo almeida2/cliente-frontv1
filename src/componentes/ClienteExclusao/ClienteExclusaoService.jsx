@@ -1,9 +1,7 @@
-const API_BASE = "/api/v1"; // usando path relativo para proxy do Vite
-
 const ClienteExclusaoService = {
   excluir: async (cpf) => {
     try {
-      const resp = await fetch(`${API_BASE}/clientes/${cpf}`, {
+      const resp = await fetch(`http://localhost:8081/api/v1/clientes/${cpf}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
