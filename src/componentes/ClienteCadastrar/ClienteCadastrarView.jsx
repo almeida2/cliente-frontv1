@@ -1,3 +1,4 @@
+// ...existing code...
 import React from "react";
 import "./styles.css";
 
@@ -5,11 +6,17 @@ const ClienteCadastrarView = ({
   cpf,
   nome,
   cep,
+  endereco,
+  bairro,
+  cidade,
   complemento,
   email,
   setCpf,
   setNome,
   setCep,
+  setEndereco,
+  setBairro,
+  setCidade,
   setComplemento,
   setEmail,
   handleSubmit,
@@ -21,10 +28,13 @@ const ClienteCadastrarView = ({
       <div className="top-bar">Sistema Integrado de Gestão</div>
       <div className="title-cadastrar-view">Cadastrar Clientes</div>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="cpf">CPF:</label>
+      <form onSubmit={handleSubmit} className="form-grid">
+        <div className="form-row">
+          <label className="form-label" htmlFor="cpf">
+            CPF:
+          </label>
           <input
+            className="form-input"
             id="cpf"
             name="cpf"
             data-testid="cpf"
@@ -34,9 +44,13 @@ const ClienteCadastrarView = ({
             required
           />
         </div>
-        <div>
-          <label htmlFor="nome">Nome:</label>
+
+        <div className="form-row">
+          <label className="form-label" htmlFor="nome">
+            Nome:
+          </label>
           <input
+            className="form-input"
             id="nome"
             name="nome"
             data-testid="nome"
@@ -46,9 +60,13 @@ const ClienteCadastrarView = ({
             required
           />
         </div>
-        <div>
-          <label htmlFor="cep">CEP:</label>
+
+        <div className="form-row">
+          <label className="form-label" htmlFor="cep">
+            CEP:
+          </label>
           <input
+            className="form-input"
             id="cep"
             name="cep"
             data-testid="cep"
@@ -58,9 +76,67 @@ const ClienteCadastrarView = ({
             required
           />
         </div>
-        <div>
-          <label htmlFor="complemento">Complemento:</label>
+
+        {/* Endereço - mantém rótulos ao lado dos inputs dentro de cada coluna */}
+        <div className="address-row">
+          <div className="address-item">
+            <div className="form-row">
+              <label className="form-label" htmlFor="endereco">
+                Endereço:
+              </label>
+              <input
+                className="form-input"
+                id="endereco"
+                name="endereco"
+                data-testid="endereco"
+                type="text"
+                value={endereco}
+                onChange={(e) => setEndereco(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="address-item">
+            <div className="form-row">
+              <label className="form-label" htmlFor="bairro">
+                Bairro:
+              </label>
+              <input
+                className="form-input"
+                id="bairro"
+                name="bairro"
+                data-testid="bairro"
+                type="text"
+                value={bairro}
+                onChange={(e) => setBairro(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="address-item">
+            <div className="form-row">
+              <label className="form-label" htmlFor="cidade">
+                Cidade:
+              </label>
+              <input
+                className="form-input"
+                id="cidade"
+                name="cidade"
+                data-testid="cidade"
+                type="text"
+                value={cidade}
+                onChange={(e) => setCidade(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="form-row">
+          <label className="form-label" htmlFor="complemento">
+            Complemento:
+          </label>
           <input
+            className="form-input"
             id="complemento"
             name="complemento"
             data-testid="complemento"
@@ -70,9 +146,13 @@ const ClienteCadastrarView = ({
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+
+        <div className="form-row">
+          <label className="form-label" htmlFor="email">
+            Email:
+          </label>
           <input
+            className="form-input"
             id="email"
             name="email"
             data-testid="email"
@@ -103,3 +183,4 @@ const ClienteCadastrarView = ({
 };
 
 export default ClienteCadastrarView;
+// ...existing code...

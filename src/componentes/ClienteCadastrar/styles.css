@@ -1,78 +1,71 @@
 /* ClienteCadastrarStyles.css */
+/* frame cinza claro ao redor do formulário */
 .cliente-cadastrar-view {
-   padding: 20px 40px 20px 40px; /* Top, Right, Bottom, Left */
-    max-width: 300px;
-    margin: 0 auto;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .cliente-cadastrar-view h3 {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .cliente-cadastrar-view form {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-  }
-  .title-cadastrar-view {
-    text-align: center;
-    margin: 30px auto;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    width: fit-content;
-  }
-  
-  
-  .button {
-    background-color: #0077b5; /* Cor azul  */
-    color: white;
-    border: 1px solid #ccc;
-    padding: 10px 10px;
-    display: flex;
-    font-size: 12px;
-    justify-content: center; /* Centraliza os botões horizontalmente */
-    cursor: pointer;
-    border-radius: 5px;/* Adiciona bordas arredondadas */
-    margin-top: 20px;
-    margin-left: 30px; /* Adiciona um espaço da margem do form de 40px */
-    
-  }
-  
-  .button:hover {
-    background-color: #005582; /* Cor azul mais escura para o hover */
-  }
-    
-    .cliente-cadastrar-view input {
-    margin-bottom: 4px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    font-size: 16px;
-  }
-  
-    .cliente-cadastrar-view input[type="submit"] {
-        background-color: #0077b5; /* Cor azul */
-        color: white;
-        border: none;
-        padding: 10px 10px;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 4px;
-    }  
-    .button-container1 {
-      display: flex;
-      justify-content: center; /* Centraliza os botões horizontalmente */
-      margin: 5px 5px; /* Margens de 10 pixels nas laterais */
-      padding: 1px;
-      
-    }
-    .cliente-cadastrar-view form > div {
+  padding: 20px 40px 20px 40px; /* Top, Right, Bottom, Left */
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.cliente-cadastrar-view h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.cliente-cadastrar-view form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.title-cadastrar-view {
+  text-align: center;
+  margin: 30px auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  width: fit-content;
+}
+
+.button {
+  background-color: #0077b5; /* Cor azul  */
+  color: white;
+  border: 1px solid #ccc;
+  padding: 10px 10px;
+  display: flex;
+  font-size: 12px;
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  cursor: pointer;
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  margin-top: 20px;
+  margin-left: 30px; /* Adiciona um espaço da margem do form de 40px */
+}
+
+.button:hover {
+  background-color: #005582; /* Cor azul mais escura para o hover */
+}
+
+.cliente-cadastrar-view input {
+  margin-bottom: 4px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.cliente-cadastrar-view input[type="submit"] {
+  background-color: #0077b5; /* Cor azul */
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cliente-cadastrar-view form > div {
   display: flex;
   align-items: baseline; /* Alinha a base do texto das labels */
   margin-bottom: 15px; /* Adiciona um espaço entre os campos */
@@ -84,4 +77,75 @@
   margin-right: 10px;
   font-weight: bold;
 }
+/* ...existing code... */
 
+/* Form layout: grid com duas colunas em telas largas, uma coluna em mobile */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  align-items: start;
+  padding: 12px;
+}
+
+/* cada linha do formulário: label + input lado a lado */
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* largura fixa do rótulo para alinhamento consistente */
+.form-label {
+  width: 120px; /* ajuste conforme necessário */
+  font-weight: 600;
+  text-align: left;
+  display: inline-block;
+}
+
+/* input expande para ocupar o espaço disponível */
+.form-input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  min-width: 0;
+}
+
+/* address-row ocupa ambas as colunas do grid pai */
+.address-row {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* itens de endereço: cada um mantém label ao lado do input */
+.address-item {
+  flex: 1 1 30%;
+  min-width: 200px;
+}
+
+/* Botões ocupam a largura total do grid e ficam alinhados à esquerda */
+.button-container1 {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* Responsividade: quebrar para uma coluna em telas pequenas */
+@media (max-width: 680px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-label {
+    width: 110px;
+  }
+  .address-item {
+    flex-basis: 100%;
+  }
+}
+
+/* ...existing code... */
