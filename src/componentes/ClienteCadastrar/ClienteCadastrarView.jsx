@@ -1,7 +1,7 @@
 // ...existing code...
 import React from "react";
 import "./styles.css";
-
+import ClienteService from "./ClienteService";  
 const ClienteCadastrarView = ({
   cpf,
   nome,
@@ -23,6 +23,25 @@ const ClienteCadastrarView = ({
   handleVoltar,
   mensagem,
 }) => {
+      const handleCepBlur = async (e) => {
+    const cepValue = e.target.value.replace(/\D/g, '');
+    
+    if (cepValue.length === 8) {
+      try {
+        const response = await ClienteService.buscarEnderecoPorCep(cepValue);
+        
+        if (response.data) {
+          setEndereco(response.data.logradouro || '');
+          setBairro(response.data.bairro || '');
+          setCidade(response.data.cidade || ''); // Agora usando o campo cidade mapeado corretamente
+          setComplemento(response.data.complemento || '');
+        }
+      } catch (error) {
+        console.error('Erro ao buscar CEP:', error);
+      }
+    }
+  };
+
   return (
     <div className="cliente-cadastrar-view">
       <div className="top-bar">Sistema Integrado de Gestão</div>
@@ -62,20 +81,21 @@ const ClienteCadastrarView = ({
         </div>
 
         <div className="form-row">
-          <label className="form-label" htmlFor="cep">
-            CEP:
-          </label>
-          <input
-            className="form-input"
-            id="cep"
-            name="cep"
-            data-testid="cep"
-            type="text"
-            value={cep}
-            onChange={(e) => setCep(e.target.value)}
-            required
-          />
-        </div>
+        <label className="form-label" htmlFor="cep">
+          CEP:
+        </label>
+        <input
+          className="form-input"
+          id="cep"
+          name="cep"
+          data-testid="cep"
+          type="text"
+          value={cep}
+          onChange={(e) => setCep(e.target.value)}
+          onBlur={handleCepBlur}
+          required
+        />
+      </div>
 
         {/* Endereço - mantém rótulos ao lado dos inputs dentro de cada coluna */}
         <div className="address-row">

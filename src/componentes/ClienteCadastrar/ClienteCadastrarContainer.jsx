@@ -15,6 +15,10 @@ const ClienteCadastrarContainer = () => {
   const [cpf, setCpf] = useState("");
   const [nome, setNome] = useState("");
   const [cep, setCep] = useState("");
+  // Novos estados para os campos de endereço
+  const [endereco, setEndereco] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [cidade, setCidade] = useState("");
   const [complemento, setComplemento] = useState("");
   const [email, setEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
@@ -29,6 +33,9 @@ const ClienteCadastrarContainer = () => {
       cpf,
       nome,
       cep,
+      endereco,    // Incluindo os novos campos
+      bairro,      // no objeto de dados
+      cidade,      // do cliente
       complemento,
       email,
     };
@@ -53,11 +60,17 @@ const ClienteCadastrarContainer = () => {
       cpf={cpf}
       nome={nome}
       cep={cep}
+      endereco={endereco}     // Passando os novos
+      bairro={bairro}        // estados e setters
+      cidade={cidade}        // para a view
       complemento={complemento}
       email={email}
       setCpf={setCpf}
       setNome={setNome}
       setCep={setCep}
+      setEndereco={setEndereco}
+      setBairro={setBairro}
+      setCidade={setCidade}
       setComplemento={setComplemento}
       setEmail={setEmail}
       handleSubmit={handleSubmit}
