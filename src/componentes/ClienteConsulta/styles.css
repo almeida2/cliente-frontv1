@@ -89,3 +89,27 @@
   outline: none;
   box-shadow: none;
 }
+/* ...existing code... */
+
+.paginacao-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.paginacao-button {
+  padding: 8px 16px;
+  margin: 0 5px;
+}
+
+.paginacao-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.paginacao-info {
+  margin: 0 15px;
+  font-size: 14px;
+}

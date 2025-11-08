@@ -1,7 +1,11 @@
 // components/ClienteConsulta.jsx
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
+
 function ClienteConsultarView({ clientes, loading, error, onVoltar }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const registrosPorPagina = 20;
+
   if (loading) {
     return <div className="loading-message">Carregando dados...</div>;
   }
@@ -13,6 +17,25 @@ function ClienteConsultarView({ clientes, loading, error, onVoltar }) {
   if (!clientes || clientes.length === 0) {
     return <div className="no-data-message">Nenhum cliente encontrado.</div>;
   }
+
+  // Lógica para paginação
+  const indexUltimoRegistro = currentPage * registrosPorPagina;
+  const indexPrimeiroRegistro = indexUltimoRegistro - registrosPorPagina;
+  const registrosAtuais = clientes.slice(indexPrimeiroRegistro, indexUltimoRegistro);
+  const totalPaginas = Math.ceil(clientes.length / registrosPorPagina);
+
+  // Funções para navegação entre páginas
+  const proximaPagina = () => {
+    if (currentPage < totalPaginas) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const paginaAnterior = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   return (
     <div className="cliente-consulta-container">
@@ -31,7 +54,7 @@ function ClienteConsultarView({ clientes, loading, error, onVoltar }) {
           </tr>
         </thead>
         <tbody>
-          {clientes.map((cliente) => (
+          {registrosAtuais.map((cliente) => (
             <tr key={cliente.id}>
               <td>{cliente.id}</td>
               <td>{cliente.cpf}</td>
@@ -46,7 +69,27 @@ function ClienteConsultarView({ clientes, loading, error, onVoltar }) {
         </tbody>
       </table>
 
-      <button onClick={onVoltar} className="button">
+      <div className="paginacao-container">
+        <button 
+          onClick={paginaAnterior} 
+          disabled={currentPage === 1}
+          className="button paginacao-button"
+        >
+          Anterior
+        </button>
+        <span className="paginacao-info">
+          Página {currentPage} de {totalPaginas}
+        </span>
+        <button 
+          onClick={proximaPagina} 
+          disabled={currentPage === totalPaginas}
+          className="button paginacao-button"
+        >
+          Próxima
+        </button>
+      </div>
+
+      <button  id="voltar" onClick={onVoltar} className="button">
         Voltar
       </button>
     </div>
