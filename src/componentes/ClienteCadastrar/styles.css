@@ -1,10 +1,11 @@
 /* ClienteCadastrarStyles.css */
 /* frame cinza claro ao redor do formulário */
 .cliente-cadastrar-view {
-  padding: 20px 40px 20px 40px; /* Top, Right, Bottom, Left */
-  max-width: 400px;
+  /* menos padding vertical para reduzir altura total */
+  padding: 12px 24px;
+  max-width: 480px;
   margin: 0 auto;
-  font-size: 16px;
+  font-size: 15px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
@@ -39,8 +40,8 @@
   justify-content: center; /* Centraliza os botões horizontalmente */
   cursor: pointer;
   border-radius: 5px; /* Adiciona bordas arredondadas */
-  margin-top: 20px;
-  margin-left: 30px; /* Adiciona um espaço da margem do form de 40px */
+  margin-top: 0px;
+  margin-left: 110px; /* Adiciona um espaço da margem do form de 40px */
 }
 
 .button:hover {
@@ -48,11 +49,11 @@
 }
 
 .cliente-cadastrar-view input {
-  margin-bottom: 4px;
+  margin-bottom: 1px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 2px;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .cliente-cadastrar-view input[type="submit"] {
@@ -83,22 +84,23 @@
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px 20px;
+  gap: 4px 6px;
   align-items: start;
-  padding: 12px;
+  padding: 1px;
 }
 
 /* cada linha do formulário: label + input lado a lado */
 .form-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px 1px;
+  margin-bottom: 1px;
 }
 
 /* largura fixa do rótulo para alinhamento consistente */
 .form-label {
-  width: 120px; /* ajuste conforme necessário */
-  font-weight: 600;
+  width: 12px; /* ajuste conforme necessário */
+  font-weight: 500;
   text-align: left;
   display: inline-block;
 }
@@ -106,7 +108,7 @@
 /* input expande para ocupar o espaço disponível */
 .form-input {
   flex: 1;
-  padding: 8px 10px;
+  padding: 6px 5px;
   border: 1px solid #cfcfcf;
   border-radius: 4px;
   min-width: 0;
@@ -116,7 +118,7 @@
 .address-row {
   grid-column: 1 / -1;
   display: flex;
-  gap: 12px;
+  gap: 15px;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -124,15 +126,15 @@
 /* itens de endereço: cada um mantém label ao lado do input */
 .address-item {
   flex: 1 1 30%;
-  min-width: 200px;
+  min-width: 160px;
 }
 
 /* Botões ocupam a largura total do grid e ficam alinhados à esquerda */
 .button-container1 {
   grid-column: 1 / -1;
   display: flex;
-  gap: 12px;
-  margin-top: 12px;
+  gap: 8px;
+  margin-top: 1px;
 }
 
 /* Responsividade: quebrar para uma coluna em telas pequenas */
@@ -148,4 +150,4 @@
   }
 }
 
-/* ...existing code... */
+
