@@ -2,6 +2,8 @@
 
 .cliente-cadastrar-view {
   padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,19 +24,19 @@
 
 .title-cadastrar-view {
   text-align: center;
-  margin: 10px 0 15px 0;
-  font-size: 1.5rem;
+  margin: 25px 10px 5px 10px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #1e293b;
 }
 
 .form-container {
-  width: 100%;
-  max-width: 800px;
+  width: 92%;
+  max-width: 1200px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 16px 24px;
+  padding: 30px 40px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -60,7 +62,7 @@
   padding: 6px 12px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 1.9rem;
   color: #1e293b;
   width: 100%;
   box-sizing: border-box;
@@ -74,9 +76,21 @@
 
 .address-row {
   grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  display: flex;
+  flex-wrap: nowrap;
+  /* Não quebrar a menos que realmente necessário */
   gap: 20px;
+  width: 100%;
+}
+
+.address-row>.form-row {
+  flex: 1;
+  /* Dividir igualmente */
+}
+
+.address-row>.form-row:first-child {
+  flex: 2;
+  /* Logradouro maior */
 }
 
 .form-grid-full-width {

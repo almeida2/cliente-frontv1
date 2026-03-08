@@ -45,7 +45,7 @@ const ClienteCadastrarView = ({
   return (
     <div className="cliente-cadastrar-view">
       <div className="top-bar">Sistema Integrado de Gestão</div>
-      <h1 className="title-cadastrar-view">Cadastrar Clientes</h1>
+      <h3 className="title-cadastrar-view">Cadastrar Clientes</h3>
 
       <div className="form-container">
         <form onSubmit={handleSubmit} className="form-grid">
@@ -67,7 +67,7 @@ const ClienteCadastrarView = ({
           <div className="form-row">
             <label className="form-label" htmlFor="nome">Nome Completo</label>
             <input
-              className="form-input"
+              className="forminput"
               id="nome"
               name="nome"
               data-testid="nome"
@@ -113,7 +113,7 @@ const ClienteCadastrarView = ({
           <div className="address-row">
             <div className="form-row">
               <label className="form-label" htmlFor="endereco">Logradouro</label>
-              <input
+              <input disabled
                 className="form-input"
                 id="endereco"
                 name="endereco"
@@ -127,7 +127,7 @@ const ClienteCadastrarView = ({
 
             <div className="form-row">
               <label className="form-label" htmlFor="bairro">Bairro</label>
-              <input
+              <input disabled
                 className="form-input"
                 id="bairro"
                 name="bairro"
@@ -141,7 +141,7 @@ const ClienteCadastrarView = ({
 
             <div className="form-row">
               <label className="form-label" htmlFor="cidade">Cidade</label>
-              <input
+              <input disabled
                 className="form-input"
                 id="cidade"
                 name="cidade"
