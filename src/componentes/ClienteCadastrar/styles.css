@@ -1,151 +1,153 @@
 /* ClienteCadastrarStyles.css */
-/* frame cinza claro ao redor do formulário */
+
 .cliente-cadastrar-view {
-  /* menos padding vertical para reduzir altura total */
-  padding: 12px 24px;
-  max-width: 480px;
-  margin: 0 auto;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.cliente-cadastrar-view h3 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.cliente-cadastrar-view form {
-  margin-top: 10px;
+  padding: 10px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+
+.top-bar {
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #d8dbdf;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .title-cadastrar-view {
   text-align: center;
-  margin: 30px auto;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  width: fit-content;
+  margin: 10px 0 15px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
 }
 
-.button {
-  background-color: #0077b5; /* Cor azul  */
-  color: white;
-  border: 1px solid #ccc;
-  padding: 10px 10px;
-  display: flex;
-  font-size: 12px;
-  justify-content: center; /* Centraliza os botões horizontalmente */
-  cursor: pointer;
-  border-radius: 5px; /* Adiciona bordas arredondadas */
-  margin-top: 0px;
-  margin-left: 110px; /* Adiciona um espaço da margem do form de 40px */
+.form-container {
+  width: 100%;
+  max-width: 800px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.button:hover {
-  background-color: #005582; /* Cor azul mais escura para o hover */
-}
-
-.cliente-cadastrar-view input {
-  margin-bottom: 1px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  font-size: 15px;
-}
-
-.cliente-cadastrar-view input[type="submit"] {
-  background-color: #0077b5; /* Cor azul */
-  color: white;
-  border: none;
-  padding: 10px 10px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.cliente-cadastrar-view form > div {
-  display: flex;
-  align-items: baseline; /* Alinha a base do texto das labels */
-  margin-bottom: 15px; /* Adiciona um espaço entre os campos */
-}
-
-.cliente-cadastrar-view label {
-  min-width: 100px; /* Define uma largura mínima para a label */
-  text-align: right; /* Alinha o texto da label à direita */
-  margin-right: 10px;
-  font-weight: bold;
-}
-/* ...existing code... */
-
-/* Form layout: grid com duas colunas em telas largas, uma coluna em mobile */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px 6px;
-  align-items: start;
-  padding: 1px;
+  gap: 12px 30px;
 }
 
-/* cada linha do formulário: label + input lado a lado */
 .form-row {
   display: flex;
-  align-items: center;
-  gap: 8px 1px;
-  margin-bottom: 1px;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* largura fixa do rótulo para alinhamento consistente */
 .form-label {
-  width: 12px; /* ajuste conforme necessário */
-  font-weight: 500;
-  text-align: left;
-  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
 }
 
-/* input expande para ocupar o espaço disponível */
 .form-input {
-  flex: 1;
-  padding: 6px 5px;
-  border: 1px solid #cfcfcf;
-  border-radius: 4px;
-  min-width: 0;
+  padding: 6px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #1e293b;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* address-row ocupa ambas as colunas do grid pai */
+.form-input:focus {
+  outline: none;
+  border-color: #0077b5;
+  box-shadow: 0 0 0 3px rgba(0, 119, 181, 0.1);
+}
+
 .address-row {
   grid-column: 1 / -1;
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
 }
 
-/* itens de endereço: cada um mantém label ao lado do input */
-.address-item {
-  flex: 1 1 30%;
-  min-width: 160px;
+.form-grid-full-width {
+  grid-column: 1 / -1;
 }
 
-/* Botões ocupam a largura total do grid e ficam alinhados à esquerda */
-.button-container1 {
+.button-group {
   grid-column: 1 / -1;
   display: flex;
-  gap: 8px;
-  margin-top: 1px;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 5px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
 }
 
-/* Responsividade: quebrar para uma coluna em telas pequenas */
-@media (max-width: 680px) {
-  .form-grid {
+.button {
+  padding: 8px 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+#confirmar {
+  background-color: #0077b5;
+  color: white;
+}
+
+#confirmar:hover {
+  background-color: #005a8a;
+}
+
+#voltar {
+  background-color: #fff;
+  color: #64748b;
+  border-color: #e2e8f0;
+}
+
+#voltar:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.mensagem-feedback {
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.mensagem-feedback.success {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.mensagem-feedback.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+@media (max-width: 600px) {
+
+  .form-grid,
+  .address-row {
     grid-template-columns: 1fr;
-  }
-  .form-label {
-    width: 110px;
-  }
-  .address-item {
-    flex-basis: 100%;
+    gap: 10px;
   }
 }
