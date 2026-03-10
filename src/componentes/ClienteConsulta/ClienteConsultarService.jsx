@@ -1,3 +1,5 @@
+//Objetivo: buscar todos os clientes cadastrados no banco de dados
+
 async function ClienteConsultar() {
   const API_URL = "http://localhost:8081/api/v1/clientes/all";
 
