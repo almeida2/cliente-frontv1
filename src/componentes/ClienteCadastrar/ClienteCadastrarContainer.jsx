@@ -12,6 +12,7 @@ import ClienteService from "./ClienteService"; // container consome esse servico
 //5-quando o formulario e submetido, handleSubmit e chamado
 //6-handleSubmit coleta os dados do estado e chama o servico ClienteService.cadastrar para enviar os dados ao backend
 //7-apos o cadastro, atualiza a mensagem de feedback com sucesso ou erro (setMensagem - esta msg deve ser melhorada)
+//8-o container e responsavel por buscar os dados do cep na api externa e preencher os campos do formulario
 //*********************************************************************************** */
 const ClienteCadastrarContainer = () => {
   const navigate = useNavigate();
