@@ -171,7 +171,7 @@ const ClienteCadastrarView = ({
 
           <div className="button-group form-grid-full-width">
             <button id="voltar" type="button" className="button" onClick={handleVoltar}>
-              Cancelar
+              Voltar
             </button>
             <button id="confirmar" type="submit" className="button">
               Cadastrar

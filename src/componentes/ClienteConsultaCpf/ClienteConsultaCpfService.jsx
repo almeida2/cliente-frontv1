@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8081/api/v1";
+const API_BASE = "https://cliente-backv2-a51a1eaa05cd.herokuapp.com/api/v1";
 
 const ClienteConsultaCpfService = {
   consultarPorCpf: async (cpf) => {

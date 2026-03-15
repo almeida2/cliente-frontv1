@@ -3,26 +3,26 @@
 /* define a url base, centraliza a configuracao do endpoint                */
 /* logica de validacao e tratamento de erros                               */
 /************************************************************************* */
-const API_BASE_URL = "http://localhost:8081/api/v1";
+const API_BASE_URL = "https://cliente-backv2-a51a1eaa05cd.herokuapp.com/api/v1/clientes";
 
 const ClienteService = {
   buscarEnderecoPorCep: async (cep) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/clientes/${cep}`);
-      
+      const response = await fetch(`${API_BASE_URL}/${cep}`);
+
       if (!response.ok) {
         const errorData = await response.text();
         throw new Error(errorData || "Erro ao buscar endereço");
       }
 
       const responseData = await response.json();
-      
+
       if (responseData.status === "success") {
-        return { 
+        return {
           data: {
             logradouro: responseData.data.logradouro,
             bairro: responseData.data.bairro,
-            cidade: responseData.data.localidade, 
+            cidade: responseData.data.localidade,
             complemento: responseData.data.complemento
           }
         };
@@ -37,7 +37,7 @@ const ClienteService = {
 
   cadastrar: async (clienteData) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/clientes`, {
+      const response = await fetch(`${API_BASE_URL}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
