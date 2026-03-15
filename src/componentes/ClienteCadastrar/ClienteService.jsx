@@ -3,7 +3,7 @@
 /* define a url base, centraliza a configuracao do endpoint                */
 /* logica de validacao e tratamento de erros                               */
 /************************************************************************* */
-const API_BASE_URL = "https://cliente-backv2-a51a1eaa05cd.herokuapp.com/api/v1/clientes";
+const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL}/clientes`;
 
 const ClienteService = {
   buscarEnderecoPorCep: async (cep) => {

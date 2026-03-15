@@ -1,4 +1,4 @@
-const API_BASE = "https://cliente-backv2-a51a1eaa05cd.herokuapp.com/api/v1";
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 const ClienteConsultaCpfService = {
   consultarPorCpf: async (cpf) => {
